@@ -1,0 +1,7 @@
+
+  .no_print {
+    display: none !important;
+  }
+  .newPage{
+    page-break-before: always;
+  }

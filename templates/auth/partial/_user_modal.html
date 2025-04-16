@@ -1,0 +1,76 @@
+{% load widget_tweaks %}
+
+
+  <div class="modal-content">
+    <div class="page-wrapper-new p-0">
+      <div class="content">
+        <div class="modal-header border-0 custom-modal-header">
+          <div class="page-title">
+            <h4>Modifier l'utilisateur</h4>
+          </div>
+          <button
+            type="button"
+            class="close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body custom-modal-body">
+          <form id="editForm" action="{{request.path}}" method="post" >
+            {% csrf_token %}
+            <div class="row">
+                                <div class="mb-3 col-6">
+                                    <label class="form-label">Nom d'utilisateur</label>
+                                    {% render_field form.username class="form-control" %}
+                                    <div class="help-block">{{ form.username.errors }}</div>
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label class="form-label">Email</label>
+                                    {% render_field form.email class="form-control"  %}
+                                    <div class="help-block">{{ form.email.errors }}</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-login  col-6">
+                                    <label>Mot de passe</label>
+                                    <div class="pass-group">
+                                        {% render_field form.password|attr:"type:password" class="pass-input" style="background:#fff !important;"%}
+                                        <span class="fas toggle-password fa-eye-slash"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label class="form-label">Rôle</label>
+                                    {% render_field form.user_type class="select" %}
+                                    <div class="help-block">{{ form.user_type.errors }}</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mb-3 col-8 d-flex align-items-center gap-3">
+                                    <label class="form-label">Recevoir les notification ?</label>
+                                    <div class="">
+                                        {% render_field form.notified|attr:"checkbox" class="form-check" %}
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+            <div class="modal-footer-btn">
+              <button
+                type="button"
+                class="btn btn-cancel me-2"
+                data-bs-dismiss="modal"
+              >
+                Annuler
+              </button>
+              <button type="submit" class="btn btn-submit">Appliquer</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
