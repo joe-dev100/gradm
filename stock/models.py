@@ -82,3 +82,16 @@ def entree_stock_on_create(sender,created,instance,**kwargs):
         instance.product.qtyStock = value
         instance.product.save()
         
+        
+        
+@receiver(post_save, sender=SortieItems)
+def sortie_stock_on_create(sender,created,instance,**kwargs):
+    stocked_qty = instance.product.qtyStock
+    appro_qty = instance.qty
+    if created:
+        value = stocked_qty  - appro_qty
+        instance.product.qtyStock = 0
+        instance.product.save()
+        instance.product.qtyStock = value
+        instance.product.save()
+        

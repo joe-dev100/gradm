@@ -41400,6 +41400,11 @@ th.fixed-width {
   -webkit-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  
+}
+.product-img{
+  height: 140px !important;
+  width: 80% !important;
 }
 .pos-products .product-info .pro-img span {
   -webkit-transition: all 0.5s ease;
@@ -41454,7 +41459,7 @@ th.fixed-width {
   border-color: #3EB780;
 }
 .pos-products .product-info:hover .pro-img img, .pos-products .product-info.active .pro-img img {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 .pos-products .product-info:hover .pro-img span, .pos-products .product-info.active .pro-img span {
   display: block;

@@ -230,17 +230,15 @@
                 if (e.detail.target.id === "dialog") {
                     modal.show();
                 }
-                if (e.detail.target.id === "content") {
-                    loadTable();
-                }
-                if ($('.select').length > 0) {
-		$('.select').select2({
-			minimumResultsForSearch: -1,
-			width: '100%'
-		});
-	}
                
-                
-        });
+                if ($('.select').length > 0) {
+                    $('.select').select2({
+                        minimumResultsForSearch: -1,
+                        width: '100%'
+                    });
+                }
+
+
+            });
      </script>
 </div>

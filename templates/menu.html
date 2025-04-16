@@ -106,7 +106,7 @@
           <ul>
             <li><a href="low-stocks.html"><i class="ti ti-trending-up-2 fs-16 me-2"></i><span>Stocks faibles</span></a></li>
             <li><a hx-get="{% url 'stock:entree_view' %}" hx-target="#content" onclick="setTitle('Liste entrées stock')"><i class="ti ti-stairs-up fs-16 me-2"></i><span>Entrée stock</span></a></li>
-            <li><a href="stock-transfer.html"><i class="ti ti-stack-pop fs-16 me-2"></i><span>Sortie stock</span></a></li>
+            <li><a hx-get="{% url 'stock:sortie_view' %}" hx-target="#content" onclick="setTitle('Liste des sorties stock')"><i class="ti ti-stack-pop fs-16 me-2"></i><span>Sortie stock</span></a></li>
           </ul>
         </li>
         <li class="submenu-open">

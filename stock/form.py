@@ -10,4 +10,15 @@ class EntreeForm(forms.ModelForm):
 class EntreeItemsForm(forms.ModelForm):
     class Meta:
         model = EntreeItems
-        fields = ['product', 'qty']
+        fields = ['qty']
+        
+        
+class SortieForm(forms.ModelForm):
+    class Meta:
+        model = SortieStock
+        fields = '__all__'
+        
+class SortieItemsForm(forms.ModelForm):
+    class Meta:
+        model = SortieItems
+        fields = ['qty', 'motif']

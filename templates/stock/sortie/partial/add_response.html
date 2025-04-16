@@ -17,11 +17,12 @@
             </li>
         </ul>
         <div class="page-btn mt-0">
-            <a hx-get="{% url 'stock:entree_view' %}" hx-target="#content" class="btn btn-secondary"><i
-                    data-feather="arrow-left" class="me-2"></i>Retour</a>
+            <a hx-get="{% url 'product:product_view' %}" hx-target="#content" class="btn btn-secondary"><i
+                    data-feather="arrow-left" class="me-2"></i>Liste
+                des produits</a>
         </div>
     </div>
-    <form hx-post="{% url 'stock:add_entree' %}" hx-target="#content" method="post">
+    <form hx-post="{% url 'stock:add_sortie' %}" hx-target="#content" method="post">
         <div class="accordions-items-seperate" id="accordionSpacingExample">
 
 
@@ -81,11 +82,11 @@
                 </h2>
                 <div id="SpacingTwo" class="accordion-collapse collapse show" aria-labelledby="headingSpacingTwo">
                     <div class="accordion-body border-top">
-                        <div id="entree_items_form">
-                            {% include 'stock/entree/partial/entree_items_form.html' %}
+                        <div id="sortie_items_form">
+                            {% include 'stock/sortie/partial/sortie_items_form.html' %}
                         </div>
-                        <button type="button" class="btn btn-outline-light me-2" hx-get="{% url 'stock:add_items_form' %}"
-                            hx-target="#entree_items_form" hx-swap="beforeend">+ Article</button>
+                        <button type="button" class="btn btn-outline-light me-2" hx-get="{% url 'stock:add_sortie_items_form' %}"
+                            hx-target="#sortie_items_form" hx-swap="beforeend">+ Article</button>
                     </div>
 
                 </div>
