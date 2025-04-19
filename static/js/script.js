@@ -852,18 +852,24 @@ $(document).ready(function(){
 	}
 
 	
-	$('ul.tabs li').click(function(){
-		var $this = $(this);
-		var $theTab = $(this).attr('id');
-		console.log($theTab);
-		if($this.hasClass('active')){
-		  // do nothing
-		} else{
-		  $this.closest('.tabs_wrapper').find('ul.tabs li, .tabs_container .tab_content').removeClass('active');
-		  $('.tabs_container .tab_content[data-tab="'+$theTab+'"], ul.tabs li[id="'+$theTab+'"]').addClass('active');
-		}
-		
-	});
+	// $('ul.tabs li').click(function(){
+	// 	// var $this = $(this);
+	// 	var cat = $(this);
+	// 	cat.toggleClass('active');
+	// 	// var $theTab = $(this).attr('id');
+	// 	// console.log($theTab);
+	// 	// if($this.hasClass('active')){
+	// 	//   // do nothing
+	// 	// } else{
+	// 	//   $this.closest('.tabs_wrapper').find('ul.tabs li, .tabs_container .tab_content').removeClass('active');
+	// 	//   $('.tabs_container .tab_content[data-tab="'+$theTab+'"], ul.tabs li[id="'+$theTab+'"]').addClass('active');
+	// 	// }
+	// 	// cat.classList.toggle("active");
+	// });
+	$("ul.tabs li ").click(function() {
+		$("ul.tabs li").removeClass('active');
+		  $(this).addClass('active');
+	  });
 
 	// Otp Verfication  
 	$('.digit-group').find('input').each(function () { 

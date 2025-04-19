@@ -4,7 +4,8 @@ from django.db import models
 
 class Cash(models.Model):
     date = models.DateField()
-    montant= models.PositiveBigIntegerField()
+    dollar= models.PositiveBigIntegerField()
+    franc= models.PositiveBigIntegerField()
     estConfirme= models.BooleanField(default=False)
 
     def __str__(self):
@@ -19,8 +20,9 @@ class Cash(models.Model):
 
 class EntreeCash(models.Model):
     date = models.DateField()
-    montant= models.PositiveBigIntegerField()
-    motif = models.TextField()
+    dollar= models.PositiveBigIntegerField()
+    franc= models.PositiveBigIntegerField()
+    description = models.CharField(max_length=255,verbose_name="Déscription")
     cash = models.ForeignKey(Cash, on_delete=models.CASCADE)
     estConfirme= models.BooleanField(default=False)
 
@@ -35,8 +37,9 @@ class EntreeCash(models.Model):
 
 class SortieCash(models.Model):
     date = models.DateField()
-    montant= models.PositiveBigIntegerField()
-    motif = models.TextField()
+    dollar= models.PositiveBigIntegerField()
+    franc= models.PositiveBigIntegerField()
+    description = models.CharField(max_length=255,verbose_name="Déscription")
     cash = models.ForeignKey(Cash, on_delete=models.CASCADE)
     estConfirme= models.BooleanField(default=False)
 

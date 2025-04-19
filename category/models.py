@@ -7,12 +7,9 @@ class Categorie(models.Model):
     )
     name = models.CharField(max_length=250,unique=True,verbose_name="Catégorie")
     status = models.CharField(default="Activée", verbose_name="Status", choices=CHOICES, max_length=10)
+    img=models.ImageField(upload_to="categories/",verbose_name="Image",blank=True,null=True)
     created_at=models.DateField(auto_now_add=True,verbose_name="Date de creation")
     def __str__(self):
         return self.name
 
-    class Meta:
-        db_table = 't_Categorie'
-        managed = True
-        verbose_name = 'Categorie'
-        verbose_name_plural = 'Categories'
+   
