@@ -34,7 +34,7 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
-        extra_fields.setdefault("is_admin", True)
+        extra_fields.setdefault("role", "admin")
 
         if extra_fields.get("is_staff") is not True:
             raise ValueError(_("Superuser must have is_staff=True."))
@@ -44,14 +44,20 @@ class CustomUserManager(BaseUserManager):
 
 
 class User(AbstractUser):
+   
+    class Roles(models.TextChoices):
+        ADMIN = 'admin', _('Admin')
+        TELLER = 'caissier', _('Caissier')
     username = models.CharField(max_length=100, unique=True)
     email = models.EmailField(max_length=255, blank=True, null=True)
     date_joined = models.DateTimeField(auto_now_add=True)
     
-       # Fields for user roles
-    is_gerant = models.BooleanField(default=False)
-    is_admin = models.BooleanField(default=False)
-    is_teller = models.BooleanField(default=False) 
+    is_active = models.BooleanField(default=True)
+    role= models.CharField(
+        max_length=10,
+        choices=Roles.choices,
+        default=Roles.TELLER,
+    ) 
      
     REQUIRED_FIELDS = []
 
@@ -74,7 +80,7 @@ class User(AbstractUser):
     
     def save(self, *args, **kwargs):
         self.full_clean()
-        if self.is_admin:
+        if self.role == 'admin':
             self.is_active=True
             self.is_superuser=True
         return super(User, self).save(*args, **kwargs)

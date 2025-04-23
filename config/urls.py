@@ -28,6 +28,7 @@ urlpatterns = [
     path('unity/', include('unity.urls')),
     path('product/', include('product.urls')),
     path('stock/', include('stock.urls')),
+    path('vente/', include('vente.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()

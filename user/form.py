@@ -14,13 +14,7 @@ class LoginForm(forms.ModelForm):
 
 
 class UserCreationForm(forms.ModelForm):
-    CHOICES = (
-        ('Admin','Admin'),('Gérant','Gérant'),('Caissier','Caissier')
-    )
-    user_type=forms.ChoiceField(
-        widget=forms.RadioSelect,
-        choices=CHOICES
-    )
+    
     class Meta:
         model = User
-        fields = ['username','email','password','user_type']
+        fields = ['username','email','password','role']

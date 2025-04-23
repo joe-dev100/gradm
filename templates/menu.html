@@ -277,11 +277,15 @@
         </li>
         
         <li class="submenu-open">
-          <h6 class="submenu-hdr">User Management</h6>
+          <h6 class="submenu-hdr">Gestion d'utilisateurs</h6>
           <ul>
-            <li><a href="users.html"><i class="ti ti-shield-up fs-16 me-2"></i><span>Users</span></a></li>
-            <li><a href="roles-permissions.html"><i class="ti ti-jump-rope fs-16 me-2"></i><span>Roles & Permissions</span></a></li>
-            <li><a href="delete-account.html"><i class="ti ti-trash-x fs-16 me-2"></i><span>Delete Account Request</span></a></li>
+            <li class="
+            {% if page == 'user' %}
+              active
+            {% endif %}
+              "><a hx-get="{% url 'auth:user_view' %}" hx-target="#content" ><i class="ti ti-shield-up fs-16 me-2"></i><span>Utilisateurs</span></a></li>
+            <li><a hx-get="{% url 'vente:session_list' %}" hx-target="#content" ><i class="ti ti-jump-rope fs-16 me-2"></i><span>Session</span></a></li>
+            
           </ul>
         </li>
         

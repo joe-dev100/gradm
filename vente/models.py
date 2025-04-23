@@ -26,8 +26,8 @@ class Session(models.Model):
 
 class Vente(models.Model):
     dateVente = models.DateField()
-    total_franc = models.IntegerField()
-    total_dollar = models.IntegerField()
+    total_franc = models.IntegerField(default=0)
+    total_dollar = models.IntegerField(default=0)
     def __str__(self):
         return self.dateVente
 
@@ -92,3 +92,15 @@ class LigneFacture(models.Model):
         verbose_name = 'LigneFacture'
         verbose_name_plural = 'LigneFactures'
 
+
+class NumFacture(models.Model):
+    lastNum = models.SmallIntegerField(verbose_name="Dernier Numéro de Facture", default=0)
+    
+    def __str__(self):
+        return self.numFacture
+
+    class Meta:
+        db_table = 't_NumFacture'
+        managed = True
+        verbose_name = 'NumFacture'
+        verbose_name_plural = 'NumFactures'
