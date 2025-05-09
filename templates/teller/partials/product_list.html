@@ -1,11 +1,10 @@
 {% load static %}
 
-
-<div class="row" id="product-list">
+<div class="row mb-3" id="product-list">
     {% for item in articles %}
 												
-    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
-        <div class="product-info card">
+    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3" >
+        <div class="product-info card" hx-get="{% url 'vente:add_to_cart' item.pk %}" hx-target="#product-order-list" hx-swap="innerHTML" hx-trigger="click">
             <a href="javascript:void(0);" class="pro-img">
                 <img src="{% static '' %}img/img_placeholder.jpg" alt="Products" class="product-img">
                 <span><i class="ti ti-circle-check-filled"></i></span>
@@ -20,8 +19,7 @@
             </div>
         </div>
     </div>
-    
-
     {% endfor %}
 </div>
+
     

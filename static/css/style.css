@@ -12079,6 +12079,12 @@ table.dataTable {
   border-radius: 8px;
 }
 
+.scrollbar {
+  
+  scrollbar-color: #A6AAAF #FE9F43;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+}
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -41520,7 +41526,7 @@ th.fixed-width {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  display: none;
+ 
 }
 .product-wrap .product-list {
   border: 1px solid #E6EAED;
@@ -42080,7 +42086,7 @@ label span {
 }
 .pos-three aside.product-order-list .product-added .empty-cart {
   height: 300px;
-  display: none;
+  
   align-items: center;
   justify-content: center;
 }
@@ -46009,5 +46015,13 @@ select.select-input option:nth-child(n):hover {
   color:#212B36 !important;
 } */
 /*# sourceMappingURL=style.css.map */
+
+
+
+/* POS */
+
+#pos-cart{
+  padding: 20px 40px !important;
+}
 
 

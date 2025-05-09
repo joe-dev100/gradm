@@ -148,19 +148,22 @@ def login_view(request):
             username=request.POST.get('username'),
             password=request.POST.get('password'),
         )
-        utilisateur=User.objects.get(username=request.POST.get('username'))
+        print("****************************USER****************************")
+        print(user)
+       
         if user is not None:
+            utilisateur=User.objects.get(username=request.POST.get('username'))
             login(request, user)
+            u=login(request, user)
             if user.is_active:
                 if user.role=='admin':
-                 
                     obj, created=Vente.objects.get_or_create(dateVente=datetime.now().date())
-                    
                     return redirect('dashboard:home_page')
                 else:
+                    
                     session=Session.objects.get(login=utilisateur)
                     if session.EstOuvert:
-                        numFacture()
+                        numFacture(user)
                         return redirect('dashboard:teller_page')
                     messages.error(request, ("La session n'est pas ouverte !"))
             else:

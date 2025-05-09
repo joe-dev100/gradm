@@ -110,28 +110,12 @@
           </ul>
         </li>
         <li class="submenu-open">
-          <h6 class="submenu-hdr">Sales</h6>
+          <h6 class="submenu-hdr">Ventes</h6>
           <ul>
-            <li class="submenu">
-              <a href="javascript:void(0);"><i class="ti ti-layout-grid fs-16 me-2"></i><span>Sales</span><span class="menu-arrow"></span></a>
-              <ul>
-                <li><a href="online-orders.html">Online Orders</a></li>
-                <li><a href="pos-orders.html">POS Orders</a></li>
-              </ul>
-            </li>
-            <li><a href="invoice.html"><i class="ti ti-file-invoice fs-16 me-2"></i><span>Invoices</span></a></li>
-            <li><a href="sales-returns.html"><i class="ti ti-receipt-refund fs-16 me-2"></i><span>Sales Return</span></a></li>
-            <li><a href="quotation-list.html"><i class="ti ti-files fs-16 me-2"></i><span>Quotation</span></a></li>
-            <li class="submenu">
-              <a href="javascript:void(0);"><i class="ti ti-device-laptop fs-16 me-2"></i><span>POS</span><span class="menu-arrow"></span></a>
-              <ul>
-                <li><a href="pos.html">POS 1</a></li>
-                <li><a href="pos-2.html">POS 2</a></li>
-                <li><a href="pos-3.html">POS 3</a></li>
-                <li><a href="pos-4.html">POS 4</a></li>
-                <li><a href="pos-5.html">POS 5</a></li>
-              </ul>
-            </li>
+            
+            <li><a hx-get="{% url 'facture:facture_list' %}" hx-target="#content" onclick="setTitle('Liste des facture vendues')"><span>Factures</span></a></li>
+            <li><a href="sales-returns.html"><span>Retour</span></a></li>
+            
           </ul>
         </li>
         <li class="submenu-open">
@@ -1159,27 +1143,11 @@
           </div>
           <div class="tab-pane fade" id="sales">
             <ul>
-              <li class="menu-title"><span>Sales</span></li>
-              <li class="submenu">
-                <a href="javascript:void(0);"><span>Sales</span><span class="menu-arrow"></span></a>
-                <ul>
-                  <li><a href="online-orders.html">Online Orders</a></li>
-                  <li><a href="pos-orders.html">POS Orders</a></li>
-                </ul>
-              </li>
-              <li><a href="invoice.html"><span>Invoices</span></a></li>
-              <li><a href="sales-returns.html"><span>Sales Return</span></a></li>
-              <li><a href="quotation-list.html"><span>Quotation</span></a></li>
-              <li class="submenu">
-                <a href="javascript:void(0);"><span>POS</span><span class="menu-arrow"></span></a>
-                <ul>
-                  <li><a href="pos.html">POS 1</a></li>
-                  <li><a href="pos-2.html">POS 2</a></li>
-                  <li><a href="pos-3.html">POS 3</a></li>
-                  <li><a href="pos-4.html">POS 4</a></li>
-                  <li><a href="pos-5.html">POS 5</a></li>
-                </ul>
-              </li>
+              <li class="menu-title"><span>Ventes</span></li>
+              
+              <li><a hx-get="{% url 'facture:facture_list' %}" hx-trigger="#content"><span>Factures</span></a></li>
+              <li><a href="sales-returns.html"><span>Retour</span></a></li>
+              
             </ul>
           </div>
           <div class="tab-pane fade" id="finance">

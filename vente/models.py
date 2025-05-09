@@ -26,6 +26,7 @@ class Session(models.Model):
 
 class Vente(models.Model):
     dateVente = models.DateField()
+    total= models.IntegerField(default=0)
     total_franc = models.IntegerField(default=0)
     total_dollar = models.IntegerField(default=0)
     def __str__(self):
@@ -104,3 +105,18 @@ class NumFacture(models.Model):
         managed = True
         verbose_name = 'NumFacture'
         verbose_name_plural = 'NumFactures'
+        
+        
+        
+class Cart(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    qty = models.IntegerField(default=0)
+    prix = models.IntegerField(default=0)
+    total = models.IntegerField(default=0)
+
+
+    class Meta:
+        db_table = 't_Cart'
+        managed = True
+        verbose_name = 'Cart'
+        verbose_name_plural = 'Carts'

@@ -1,5 +1,5 @@
 from datetime import datetime
-from vente.models import NumFacture
+from vente.models import Facture, NumFacture, Session, Vente
 
 
 def formatNumFacture(num):
@@ -16,13 +16,15 @@ def formatNumFacture(num):
         return f"0{num}"
     
     
-def numFacture():
+def numFacture(user):
     """
     Generate a formatted invoice number.
     """
+    vente=Vente.objects.filter().last()
     # Get the last invoice number from the database
     last_invoice = NumFacture.objects.last()
     new_invoice_number = 0
+    session=Session.objects.get(login=user)
     if last_invoice:
         # Increment the last invoice number by 1
         new_invoice_number = int(last_invoice.lastNum) + 1
@@ -34,6 +36,7 @@ def numFacture():
         last_invoice.lastNum = new_invoice_number
         last_invoice.save()
         formatted_invoice_number = f"{year}{month}{day}{formatNumFacture(new_invoice_number)}"
+        Facture.objects.create(numFacture=formatted_invoice_number, utilisateur=session,vente=vente)
     else:
         # If no invoices exist, start with 1
         new_invoice_number = 1
@@ -42,7 +45,7 @@ def numFacture():
         month= str(datetime.now().month)
         day= str(datetime.now().day)
         formatted_invoice_number = f"{year}{month}{day}{formatNumFacture(new_invoice_number)}"
-    
+        Facture.objects.create(numFacture=formatted_invoice_number, utilisateur=session,vente=vente)
     return formatted_invoice_number
    
     

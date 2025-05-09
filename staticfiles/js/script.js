@@ -1781,7 +1781,7 @@ $(document).ready(function(){
 		return false;
 	});
 
-	// Todo Strike Content
+	
 	$('.todo-item input').on('click', function(){
 		$(this).parent().parent().toggleClass('todo-strike');
 	});

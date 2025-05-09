@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'cash.apps.CashConfig',
     'category.apps.CategoryConfig',
     'employe.apps.EmployeConfig',
@@ -31,11 +32,13 @@ INSTALLED_APPS = [
     'stock.apps.StockConfig',
     'unity.apps.UnityConfig',
     'user.apps.UserConfig',
+    'facture.apps.FactureConfig',
     'vente.apps.VenteConfig',
     'widget_tweaks',
     'settings',
     "django_htmx",
     'rest_framework',
+    
 ]
 
 MIDDLEWARE = [

@@ -211,6 +211,14 @@ def add_sortie(request):
                 html = render(request, "stock/sortie/partial/add_response.html", context)
                 return HttpResponse(html)
             else:
+                p=Product.objects.get(pk=product[i])
+                oldQty=p.qtyStock
+                if int(qty[i]) >= oldQty:
+                   
+                    messages.error(request,"La quantité entrée est supérieure à la quantité actuelle")
+                    html = render(request, "stock/sortie/partial/add_response.html", context)
+                    SortieStock.objects.last().delete()
+                    return HttpResponse(html)
                 items=SortieItems.objects.create(product_id=int(product[i]), qty=int(qty[i]), sortie=sortie, motif=motif[i])
                 items.save()
         items=SortieStock.objects.all().annotate(num_product=Count("sortieitems")).order_by('-dateSortie')

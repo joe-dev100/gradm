@@ -1,3 +1,4 @@
+
 function myFunction(event) {
   let inputField = document.querySelector(".input");
 
